@@ -1,0 +1,12 @@
+[{
+"count": 4,
+"object": {
+  "event": "some other error message",
+  "type": 1,
+  "timestamp": 1401722642930,
+  "id": "4fbaf2129d813eeabbac125819d0fab3192fca44c9f5316cbc693ef167b8109f",
+  "pipelineId": "test-pipeline",
+  "pipeId": "some-pipe"
+},
+"event_type": "STATUS_UPDATE"
+}]

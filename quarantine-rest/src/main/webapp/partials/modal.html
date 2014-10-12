@@ -1,0 +1,41 @@
+<!--   Copyright (C) 2013-2014 Computer Sciences Corporation
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License. -->
+
+<div class="comment-wrapper">
+    <script type="text/ng-template" id="modal.html"></script>
+    <div class="modal-header">
+        <h4>Enter Update Comment</h4>
+    </div>
+    <div class="modal-body">
+        <p>
+            Num Objects:
+            <span class="highlight">{{data.objCount}}</span>
+        </p>
+
+        <p>
+            {{data.labelOne}}:
+            <span class="highlight">{{data.valOne}}</span>
+        </p>
+
+        <p>
+            {{data.labelTwo}}:
+        </p>
+        <textarea ng-if="data.rowCount>0" rows="{{data.rowCount}}" class="modalform" ng-model="comment.text"></textarea>
+        <input ng-if="data.rowCount==0" type="password" ng-model="comment.text"/>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-default" ng-click="cancel()" ng-disabled="inProgress">Cancel</button>
+        <button class="btn btn-primary" ng-click="ok()" ng-disabled="inProgress">Submit</button>
+    </div>
+</div>

@@ -1,0 +1,71 @@
+{
+  "serializable": true,
+  "sum": 2,
+  "truncatedEventText": "error msg 2",
+  "latestEventTimeStamp": 1401822226115,
+  "eventsWithCounts": [
+    {
+      "count": 1,
+      "status": "QUARANTINED",
+      "event": {
+        "id": "3676d5d6ea9dab269174d2287994487008ef5ff58a2c50bcd21e43c943cca0db",
+        "type": "ERROR",
+        "timestamp": 1401822224519,
+        "event": "error msg 1",
+        "pipelineId": "test",
+        "pipeId": "test-pipe",
+        "setEvent": true,
+        "setId": true,
+        "setTimestamp": true,
+        "setPipelineId": true,
+        "setPipeId": true,
+        "setType": true
+      },
+      "setEvent": true,
+      "setStatus": true,
+      "setCount": true
+    },
+     {
+      "count": 2,
+      "status": "QUARANTINED",
+      "event": {
+        "id": "3676d5d6ea9dab269174d2287994487008ef5ff58a2c50bcd21e43c943cca0db",
+        "type": "ERROR",
+        "timestamp": 1401822224519,
+        "event": "error msg 1",
+        "pipelineId": "test",
+        "pipeId": "test-pipe",
+        "setEvent": true,
+        "setId": true,
+        "setTimestamp": true,
+        "setPipelineId": true,
+        "setPipeId": true,
+        "setType": true
+      },
+      "setEvent": true,
+      "setStatus": true,
+      "setCount": true
+    },
+    {
+      "count": 1,
+      "status": "APPROVED_FOR_REINGEST",
+      "event": {
+        "id": "7fd4cf70aa5960a39929356c51fc17d0d3a2c0a779e83f36788d47b8967386a8",
+        "type": "ERROR",
+        "timestamp": 1401822226115,
+        "event": "error msg 2",
+        "pipelineId": "test",
+        "pipeId": "test-pipe",
+        "setEvent": true,
+        "setId": true,
+        "setTimestamp": true,
+        "setPipelineId": true,
+        "setPipeId": true,
+        "setType": true
+      },
+      "setEvent": true,
+      "setStatus": true,
+      "setCount": true
+    }
+  ]
+}

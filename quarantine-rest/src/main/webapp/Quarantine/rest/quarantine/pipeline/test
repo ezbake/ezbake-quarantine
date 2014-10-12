@@ -1,0 +1,14 @@
+[
+  {
+    "count": 2,
+    "object": {
+      "event": "error msg 2",
+      "type": 0,
+      "timestamp": 1401722642740,
+      "id": "4fbaf2129d813eeabbac125819d0fab3192fca44c9f5fe8cbc693ef167b8109f",
+      "pipelineId": "test",
+      "pipeId": "test-pipe"
+    },
+    "event_type": "ERROR"
+  }
+]

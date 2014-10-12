@@ -1,0 +1,117 @@
+<!--   Copyright (C) 2013-2014 Computer Sciences Corporation
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License. -->
+
+<div id="page-wrapper" ng-init="update()">
+    <div class="row pagehead">
+        <div class="col-lg-12 row">
+            <!-- Pipeline name -->
+            <i class="fa fa-angle-right crumb"></i>
+
+            <h1 class="title"><a href="#/pipelines/{{pipelineName}}">{{pipelineName}}</a></h1>
+            <!-- Pipe name -->
+            <i class="fa fa-angle-right crumb"></i>
+
+            <h2 class="sub-title"><a href="#/pipelines/{{pipelineName}}/{{pipeName}}">{{pipeName}}</a></h2>
+
+            <!-- Object ID -->
+            <i class="fa fa-angle-right crumb"></i>
+
+            <h2 class="sub-title">{{objectId}}</h2>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <!---Table Rows-->
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="sub-panel panel-group" id="accordion">
+                                <!--START DIV TABLES-->
+                                <div class="divHeaderRow">
+                                    <div class="message-object-detail">
+                                        <div> Event</div>
+                                    </div>
+                                    <div class="timestamp">
+                                        <div> Timestamp</div>
+                                    </div>
+                                    <div class="event-type">
+                                        <div> Type</div>
+                                    </div>
+                                    <div class="expander">
+                                        <div></div>
+                                    </div>
+                                </div>
+
+                                <!--Start table row-->
+                                <div class="divRow" ng-repeat="event in objectDetails.events">
+                                    <div class="message-object-detail">
+                                        <div>
+                                            <div class="truncate-error highlight" style="float: left;"><a
+                                                    style="cursor: pointer;"
+                                                    ng-click="showErrorDetail(event.event)">{{event.event}}</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="timestamp">
+                                        <div>{{event.timestamp | date : 'medium'}}</div>
+                                    </div>
+                                    <div class="event-type">
+                                        <div> {{event.type}}</div>
+                                    </div>
+                                    <div class="expander">
+                                        <span ng-if="event.additionalMetadata && event.additionalMetadata.entriesSize">
+                                            <a ng-click="showAdditionalMetadata(event.additionalMetadata.entries)" class="hand">
+                                                <i class="fa fa-external-link-square"></i>
+                                            </a>
+                                        </span>
+                                    </div>
+                                </div>
+                                <!--END Table Row-->
+
+                            </div>
+                            <!--END DIV TABLES-->
+
+                        </div>
+                    </div>
+                    <div ng-show="loading">
+                        <h4 class="title">Loading events for this object...</h4>
+                    </div>
+                    <div ng-show="!objectDetails.events.length && !loading">
+                        <h4 class="title">There are no events for this object in Quarantine.</h4>
+                    </div>
+                    <!--------------End Table Rows--------------->
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+

@@ -1,0 +1,22 @@
+{
+    "id": "3676d5d6ea9dab269174d2287994487008ef5ff58a2c50bcd21e43c943cca0db",
+    "events": [
+        {
+            "event": "neat",
+            "timestamp": 1405429531000,
+            "type": "ERROR",
+            "additionalMetadata": {
+                "entries": {
+                    "some key" : {
+                            "value": "some value",
+                            "visibility": "whatever"
+                    },
+                    "stack trace" : {
+                            "value": "this is a long stack trace with some newlines this is a long stack trace\n\n with some newlines this is a long stack trace with some newlines this is a long stack trace with some newlines this is a long stack trace with some newlines this is a long stack trace with some newlinesthis is a long stack trace with some newlines",
+                            "visibility": "dont care"
+                    }
+                }
+            }
+        }
+    ]
+}

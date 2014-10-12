@@ -1,0 +1,165 @@
+<!--   Copyright (C) 2013-2014 Computer Sciences Corporation
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License. -->
+
+<div id="page-wrapper" ng-init="update(true)">
+    <div class="row pagehead">
+        <div class="col-lg-12 row">
+            <i class="fa fa-angle-right crumb"></i>
+            <!-- Pipeline name -->
+            <h1 class="title"><a href="#/pipelines/{{pipelineName}}">{{pipelineName}}</a></h1>
+            <!-- Pipename -->
+            <i class='fa fa-angle-right crumb'></i>
+
+            <h2 class="sub-title"><a href="#/pipelines/{{pipelineName}}/{{pipeName}}">{{pipeName}}</a></h2>
+            <!-- Error Detail -->
+            <i class='fa fa-angle-right crumb'></i>
+
+            <h2 class="sub-title">Error Detail</h3>
+        </div>
+
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+
+                        <div class="row">
+                            <div class="col-xs-5">
+                                <ul class="controls">
+                                    <li>
+                                        <button class="btn resolve" ng-click="updateStatus('a')"> Approve <i
+                                                class="fa fa-thumbs-up"></i></button>
+                                    </li>
+                                    <li>
+                                        <button class="btn" ng-click="updateStatus('r')"> Reject <i
+                                                class="fa fa-thumbs-down"></i></button>
+                                    </li>
+                                    <li>
+                                        <button class="btn" ng-click="triggerDownload()"> Download <i
+                                                class="fa fa-download"></i></button>
+                                    </li>
+                                    <li>
+                                        <button class="btn" ng-click="triggerDelete()"> Delete <i
+                                                class="fa fa-trash-o"></i></button>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-xs-2 text-right floatright" style="text-align:right;">
+
+                                <div class="sort">
+                                    <button class="btn refresh floatright" ng-click="refresh()" style="z-index:1000"><i
+                                            class="fa fa-refresh"></i></button>
+
+                                    <div class="dropdown keep-open">
+                                        <button class="dropdown-toggle btn floatright" data-toggle="dropdown">Filter by
+                                            <b class="caret"></b></button>
+                                        <ul class="dropdown-menu filter">
+                                            <li>
+                                                <label ng-repeat="(s, enabled) in statuses" class="filterbox">
+                                                    <input type="checkbox" ng-model="statuses[s]"
+                                                           ng-change="update(false)"> {{s}}
+                                                </label>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+
+
+                                    <script type="text/javascript">
+//Keep Dropdown Open
+$( document ).ready(function() {
+$('.keep-open').on({
+	"click":function(e){
+      e.stopPropagation();
+    }
+  });
+});
+
+                                    </script>
+
+                                    <!----End Sort------>
+                                </div>
+                            </div>
+                        </div>
+                        <!-----------Table Rows------------>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="sub-panel panel-group" id="accordion">
+                                    <!--START DIV TABLES-->
+                                    <div class="divHeaderRow">
+                                        <div class="checks">
+                                            <div class="checkbox">
+
+                                                <input type="checkbox" ng-model="isChecked"
+                                                       ng-change="checkAll(isChecked)">
+                                            </div>
+                                        </div>
+                                        <div class="objectid-full">
+                                            <div> Object ID</div>
+                                        </div>
+                                        <div class="timestamp">
+                                            <div> Timestamp</div>
+                                        </div>
+                                        <div class="status">
+                                            <div> Status</div>
+                                        </div>
+                                    </div>
+
+                                    <!--Start table row-->
+                                    <div class="divRow" ng-repeat="event in eventData.ids">
+                                        <div class="checks">
+                                            <div class="checkbox">
+                                                <input type="checkbox" ng-model="isRowSelected[$index]"
+                                                       ng-change="uncheckMaster()">
+                                            </div>
+                                        </div>
+                                        <div class="objectid-full">
+                                            <div><a style="cursor: pointer;"
+                                                    href="#/pipelines/{{pipelineName}}/{{pipeName}}/{{event.id}}/object-detail">{{event.id}}</a></div>
+                                        </div>
+                                        <div class="timestamp">
+                                            <div>{{event.timestamp | date : 'medium'}}</div>
+                                        </div>
+                                        <div class="status">
+                                            <div>{{event.status}}</div>
+                                        </div>
+                                    </div>
+                                    <!--END Table Row-->
+
+                                </div>
+                                <!--END DIV TABLES-->
+
+                            </div>
+                        </div>
+                        <!--------------End Table Rows--------------->
+                        <div ng-show="eventData.totalResults > 30">
+                            <div class="pagingDiv">
+                                <!-- TODO remove hard coded page size -->
+                                <a ng-click="decrementPage()" ng-show="page > 0" style="cursor: pointer;">&lt;</a>
+                                &nbsp;{{page + 1}}&nbsp;
+                                <a ng-click="incrementPage()" ng-show="eventData.totalResults > (page + 1) * 30" style="cursor: pointer;">&gt;</a>
+                            </div>
+                        </div>
+                        <div ng-show="loading">
+                            <h4 class="title">Loading events...</h4>
+                        </div>
+                        <div ng-show="!eventData.ids.length && !loading">
+                            <h4 class="title">There are no entries for this event in Quarantine.</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

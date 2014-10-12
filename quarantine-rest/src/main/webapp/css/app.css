@@ -1,0 +1,660 @@
+/*   Copyright (C) 2013-2014 Computer Sciences Corporation
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License. */
+
+/* Global Styles */
+@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700|Roboto:400,100,300,500,700);
+
+body {
+  margin-top: 50px;
+  font-family: 'Roboto', sans-serif;
+  background: #16171A;
+}
+#wrapper {
+  padding-left:10px;
+}
+#page-wrapper {
+  width: 100%;
+  padding: 5px 15px;
+}
+textarea.form-control {
+  height: 100%;
+}
+.editor #wrapper {
+  height: 100%;
+}
+.editor #page-wrapper {
+  height: 100%;
+}
+
+.pagingDiv {
+  display: table;
+  margin: 0 auto;
+}
+
+/* Nav Messages */
+.messages-dropdown .dropdown-menu .message-preview .avatar, .messages-dropdown .dropdown-menu .message-preview .name, .messages-dropdown .dropdown-menu .message-preview .message, .messages-dropdown .dropdown-menu .message-preview .time {
+  display: block;
+}
+.messages-dropdown .dropdown-menu .message-preview .avatar {
+  float: left;
+  margin-right: 15px;
+}
+.messages-dropdown .dropdown-menu .message-preview .name {
+  font-weight: bold;
+}
+.messages-dropdown .dropdown-menu .message-preview .message {
+  font-size: 12px;
+}
+.messages-dropdown .dropdown-menu .message-preview .time {
+  font-size: 12px;
+}
+
+/* Nav Announcements */
+.announcement-heading {
+  font-size: 50px;
+  margin: 0;
+}
+.announcement-text {
+  margin: 0;
+}
+/* Table Headers */
+
+table.tablesorter thead {
+  cursor: pointer;
+}
+table.tablesorter thead tr th:hover {
+  background-color: rgba(0,0,0,0.2);
+}
+/* Flot Chart Containers */
+
+.flot-chart {
+  display: block;
+  height: 400px;
+}
+.flot-chart-content {
+  width: 100%;
+  height: 100%;
+}
+/* END Flot Chart Containers */
+/* Morris*/
+.morris-hover {
+  position: absolute;
+  z-index: 1000;
+}
+.morris-hover.morris-default-style {
+  border-radius: 10px;
+  padding: 6px;
+  color: #666;
+  background: rgba(255, 255, 255, 0.8);
+  border: solid 2px rgba(230, 230, 230, 0.8);
+  font-family: sans-serif;
+  font-size: 12px;
+  text-align: center;
+}
+.morris-hover.morris-default-style .morris-hover-row-label {
+  font-weight: bold;
+  margin: 0.25em 0;
+}
+.morris-hover.morris-default-style .morris-hover-point {
+  white-space: nowrap;
+  margin: 0.1em 0;
+}
+/* End Morris */
+
+/*========Ico-moon Font===============*/
+@font-face {
+  font-family: 'ozone';
+  src: url('../fonts/ozone.eot?9m6zr2');
+  src: url('../fonts/ozone.eot?#iefix9m6zr2') format('embedded-opentype'),  url('../fonts/ozone.woff?9m6zr2') format('woff'),  url('../fonts/ozone.ttf?9m6zr2') format('truetype'),  url('../fonts/ozone.svg?9m6zr2#ozone') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+[class^="icon-"], [class*=" icon-"] {
+  font-family: 'ozone';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-pipe-02:before {
+  content: "\e601";
+}
+.icon-pipeline:before {
+  content: "\e600";
+}
+/*========END Ico-moon Font===============*/
+
+input[type=search] {
+  border-radius: 10px;
+  border: none;
+  margin: 14px 10px 0px 0px;
+  background: #212327;
+  color: #ccc;
+  font-size: 12px;
+  padding-left: 10px;
+}
+h1.title {
+  margin-top: 0px;
+  color: white;
+  font-weight: 100;
+  font-size: 28px;
+  text-transform: uppercase;
+  float: left;
+  margin-right: 14px;
+}
+h2.sub-title {
+  margin-top: 0px;
+  color: white;
+  font-weight: 100;
+  font-size: 20px;
+  text-transform: none;
+  float: left;
+  margin-right: 14px;
+  line-height: 30px;
+}
+h2.side-title {
+  margin-top: 0px;
+  color: white;
+  font-weight: 100;
+  font-size: 20px;
+  text-transform: none;
+  margin-right: 14px;
+  line-height: 30px;
+}
+.pagehead {
+  margin-bottom: 20px;
+}
+.highlight {
+  color: #7A9D4C;
+}
+.comment-text {
+  font-size: 13px;
+}
+.settings a i {
+  color: #999;
+}
+.settings .badge {
+  position: absolute;
+  margin-right: -5px;
+  margin-left: 5px;
+  background-color: #7A9D4C;
+}
+.floatright {
+  float: right;
+}
+.sort {
+  color: #999;
+}
+.sort .caret {
+  margin-left: 5px;
+  color: #7A9D4C;
+}
+.sort .btn {
+}
+.sortby {
+  font-weight: 300;
+}
+.refresh {
+  margin-left: 3px;
+}
+.crumb {
+  float: left;
+  font-size: 30px;
+  margin-right: 14px;
+}
+.pagehead .last-error, .pagehead .last-event, .pagehead .meta {
+  float: left;
+  margin-right: 20px;
+  color: #999;
+  font-weight: 300;
+  line-height: 40px
+}
+.pipes .panel .last-error, .pipes .panel .last-event, .events .panel .last-error, .events .panel .last-event, .meta {
+  float: left;
+  margin-right: 20px;
+  color: #666;
+  font-weight: 300;
+  line-height: 20px
+}
+.pipes .panel .col-xs-12 {
+  padding-left: 35px;
+}
+.panel .icon-pipe-02 {
+  float: left;
+  margin-right: 8px;
+  margin-left: -28px;
+  line-height: 25px;
+  color: #444;
+}
+.controls {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.controls .btn:hover {
+  color: #7A9D4C;
+}
+.controls li {
+  float: left;
+  display: block;
+  margin-right: 3px;
+}
+.panel .btn {
+  box-shadow: none;
+  background: rgba(0,0,0,0.3);
+}
+.sub-panel {
+  /*padding:10px;*/
+  /*background-color:rgba(0,0,0,0.3);*/
+  border-radius: 3px;
+  margin-top: 10px;
+}
+.codeview {
+  background: rgba(255,255,255,0.80);
+  outline: none;
+  color: #333333;
+  font-family: Consolas, "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", Monaco, "Courier New", monospace;
+  height:100%;
+  position:fixed;
+  width: calc(100% - 403px);
+  height: calc(100% - 265px);
+  overflow:scroll;
+}
+.codeview .code{
+  padding:20px;
+ }
+.modalform {
+  color: #DDDDDD;
+  width: 100%;
+  background: rgba(255,255,255,0.03);
+  border: none;
+  border-radius: 3px;
+  padding: 10px;
+}
+.dropsearch {
+  background: #16171A;
+  padding: 10px;
+  border: solid 1px #222;
+}
+.dropsearch input[type=search] {
+  border-radius: 3px;
+  padding: 3px;
+  border: none;
+  margin: 0px;
+  background: #212327;
+  color: #ccc;
+  font-size: 12px;
+  padding-left: 10px;
+}
+.divHeaderTable {
+  width: 100%;
+  padding-bottom: 5px;
+  display: block;
+}
+.divHeaderRow {
+  width: 100%; /* add extra that you want to for header column */
+  display: block;
+  font-weight:700;
+  background-color:transparent;
+}
+.divHeaderColumn {
+  float: left;
+  width: 33%;
+  display: block;
+}
+.divTable {
+  width: 100%;
+  display: block;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 10px;
+  padding-left: 10px;
+  display: block;
+}
+.divRow { 
+  width: 100%;
+  display: inline-block;
+  margin-bottom: 3px;
+  overflow:hidden;
+  background-color: rgba(0,0,0,0.3);
+}
+.subrow .divRow {
+  background-color: rgba(0,0,0,0);
+}
+.divRow div, .divHeaderRow div{
+  padding:5px;
+ }
+.codepanel{
+  position: fixed;
+  height: calc(100% - 190px);
+  width: calc(100% - 370px);
+}
+.filter {
+  position:absolute;
+  right: 40px;
+  left:auto;
+  text-align: left;
+  min-width: 185px;
+  padding-left: 12px;
+  background:#16171A;
+}
+.filter li{
+  margin-bottom: 10px;
+  }
+
+label {
+  display: inline-block;
+  cursor: pointer;
+  position: relative;
+  margin-right: 15px;
+  font-size: 13px;
+}
+.filter label {
+  display: block;
+  cursor: pointer;
+  position: relative;
+  margin-right: 15px;
+  font-size: 13px;
+}
+.filter span{
+  margin-left:22px;
+  line-height: 16px;
+  }
+.filter .checkbox label {
+  padding-left: 25px;
+  margin-right: 0px;
+}
+.sort .fa-refresh{
+ line-height: 20px;
+}
+#accordion{
+  padding:3px;
+  }
+
+.comment-wrapper{
+  background-color: #16171A
+}
+
+.hand {
+  cursor: pointer;
+  cursor: hand;
+}
+
+.filter {
+  position:absolute;
+  right: 40px;
+  left:auto;
+  text-align: left;
+  min-width: 185px;
+  padding-left: 12px;
+  background:#16171A;
+  top: 34;
+}
+.filter li{
+  margin-bottom: 10px;
+  }
+.filterbox{
+    display:inherit;
+}
+
+.sort .fa-refresh{
+ line-height: 20px;
+}
+#accordion{
+  padding:3px;
+  }
+/* Edit Below to Customize Widths > 768px */
+@media (min-width:768px) {
+/* Wrappers */
+
+#wrapper {
+  padding-left: 60px;
+}
+#page-wrapper {
+  padding: 15px 25px;
+  background: #16171a;
+}
+.events #page-wrapper {
+  padding-right: 290px;
+}
+/* Nav Messages */
+
+.messages-dropdown .dropdown-menu {
+  min-width: 300px;
+}
+.messages-dropdown .dropdown-menu li a {
+  white-space: normal;
+}
+.navbar-collapse {
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+}
+.navbar-inverse .navbar-nav > li > a {
+  color: #666;
+}
+.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
+  color: #fff;
+  background-color: #27292e;
+}
+.navbar-inverse .navbar-brand {
+  color: #7A9D4C;
+  text-transform: uppercase;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 300;
+}
+/* Side Nav */
+
+.side-nav {
+  margin-left: -60px;
+  left: 60px;
+  width: 60px;
+  position: fixed;
+  top: 50px;
+  height: 100%;
+  border-radius: 0;
+  border: none;
+  background-color: #1d1f22;
+  overflow-y: auto;
+}
+/* Bootstrap Default Overrides - Customized Dropdowns for the Side Nav */
+
+.side-nav>li.dropdown>ul.dropdown-menu {
+  position: relative;
+  min-width: 225px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background-color: transparent;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+}
+.side-nav>li.dropdown>ul.dropdown-menu>li>a {
+  color: #999999;
+  padding: 15px 15px 15px 25px;
+}
+.side-nav>li.dropdown>ul.dropdown-menu>li>a:hover, .side-nav>li.dropdown>ul.dropdown-menu>li>a.active, .side-nav>li.dropdown>ul.dropdown-menu>li>a:focus {
+  color: #fff;
+  background-color: #080808;
+}
+.side-nav>li>a {
+  width: 100%;
+}
+.navbar-inverse .navbar-nav>li>a:hover, .navbar-inverse .navbar-nav>li>a:focus {
+  background-color: #080808;
+}
+li.active a {
+  border-left: 4px solid #7A9D4C;
+}
+.navbar .icon-pipeline {
+  color: #fff;
+  font-size: 20px;
+}
+.right-bar .icon-pipe-02 {
+  float: left;
+  line-height: 30px;
+  margin-right: 8px;
+}
+.navbar-right > li > a {
+  padding: 15px 10px;
+  font-size: 12px;
+}
+.side-nav > li > a {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+.right-bar {
+  padding-top: 20px;
+  margin-right: -260px;
+  right: 260px;
+  width: 260px;
+  position: fixed;
+  top: 50px;
+  height: 100%;
+  border-radius: 0;
+  border: none;
+  background-color: #1d1f22;
+  overflow-y: auto;
+}
+.divColumn {
+  float: left;
+  width: 20%;
+  display: block;
+}
+.divRow div {
+padding:10px;
+}
+.divRow div div{
+padding:0px;
+}
+.checks {
+  float: left;
+  display: block;
+  padding-left:10px;
+}
+.objectid {
+  float: left;
+  width: 20%;
+  display: block;
+  overflow:hidden;
+}
+.objectid-full {
+  float: left;
+  width: 60%;
+  display: block;
+}
+.message {
+  float: left;
+  width: 41%;
+  display: block;
+}
+.message-object-detail {
+  float: left;
+  width: 65%;
+  display: block;
+}
+.modal-event {
+  float: left;
+  width: 65%;
+  display: block;
+}
+.modal-timestamp {
+  float: left;
+  width: 35%;
+  display: block;
+}
+.event-detail {
+  word-wrap:break-word;
+}
+.timestamp {
+  float: left;
+  width: 15%;
+  display: block;
+}
+.status {
+  float: left;
+  width: 18%;
+  display: block;
+  text-align:left;
+}
+.event-type {
+  float: left;
+  width: 15%;
+  display: block;
+  text-align:left;
+}
+.expander {
+  float: left;
+  display: block;
+  text-align:right;
+}
+.codewindow{
+  background:#CCCCCC;
+  padding:20px;
+  }
+.expander a{
+  cursor:pointer;
+}  
+}
+@media (max-width:1100px) {
+ .events .right-bar {
+ display:none;
+  }
+  .events #page-wrapper {
+  padding-right: 30px;
+}
+.divHeaderRow{
+  font-size: 12px;
+  }
+  }
+
+.truncate{
+  width: 225px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.truncate-error{
+  width: 425px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.comment-wrapper{
+  background-color: #16171A
+}
+.hand {
+  cursor: pointer;
+  cursor: hand;
+}
+.modal-key {
+  float: left;
+  width: 25%;
+  display: block;
+}
+.modal-value {
+  float: left;
+  width: 75%;
+  display: block;
+}
+.wide-modal .modal-dialog {
+    width :800px;
+    min-width: 800px;
+}

@@ -1,0 +1,38 @@
+[
+  {
+    "pipeName": "workerP",
+    "errorCount": 20,
+    "lastErrorMsg": "Cras viverra ornare odio",
+    "timestamp": "21:00"
+  },
+  {
+    "pipeName": "workerQ",
+    "errorCount": 12,
+    "lastErrorMsg": "Vestibulum id sollicitudin mauris",
+    "timestamp": "01:05"
+  },
+  {
+    "pipeName": "workerR",
+    "errorCount": 1,
+    "lastErrorMsg": "Nulla facilisi",
+    "timestamp": "11:20"
+  },
+  {
+    "pipeName": "workerS",
+    "errorCount": 3,
+    "lastErrorMsg": "Phasellus scelerisque, sapien nec ",
+    "timestamp": "5:02"
+  },
+  {
+    "pipeName": "workerT",
+    "errorCount": 2,
+    "lastErrorMsg": "Lorem ipsum dolor sit ame",
+    "timestamp": "12:43"
+  },
+  {
+    "pipeName": "workerU",
+    "errorCount": 200,
+    "lastErrorMsg": "Illegal argument exception",
+    "timestamp": "15:12"
+  }
+]

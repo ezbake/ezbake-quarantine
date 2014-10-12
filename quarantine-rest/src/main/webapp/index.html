@@ -1,0 +1,81 @@
+<!--   Copyright (C) 2013-2014 Computer Sciences Corporation
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License. -->
+
+<html lang="en" ng-app="quarantineApp">
+<head>
+    <script src="js/lib/jquery-1.10.2.js"></script>
+    <script src="js/lib/angular-file-upload-shim.min.js"></script>
+    <!-- Angular dependencies -->
+    <script src="js/lib/angular.min.js"></script>
+    <script src="js/lib/angular-file-upload.min.js"></script>
+    <script src="js/lib/angular-route.min.js"></script>
+    <script src="js/lib/angular-resource.min.js"></script>
+    <script src="js/lib/ui-bootstrap-tpls-0.11.0.min.js"></script>
+    <script src="js/app.js"></script>
+
+    <!-- All the controllers -->
+    <script src="js/detail-modal-controller.js"></script>
+    <script src="js/pipeline-controller.js"></script>
+    <script src="js/pipe-controller.js"></script>
+    <script src="js/delete-modal-controller.js"></script>
+    <script src="js/import-controller.js"></script>
+    <script src="js/pipe-detail-controller.js"></script>
+    <script src="js/pipe-modal-controller.js"></script>
+    <script src="js/upload-modal-controller.js"></script>
+    <script src="js/object-detail-controller.js"></script>
+    <script src="js/interceptor.js"></script>
+
+
+    <script src="js/services.js"></script>
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.0.js"></script>
+
+    <!-- Bootstrap-->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <!-- Font awesomefor icons -->
+    <link rel="stylesheet" type="text/css" href="font-awesome/css/font-awesome.min.css">
+    <!-- App specific css -->
+    <link rel="stylesheet" type="text/css" href="css/app.css">
+    <link rel="icon" type="image/png" href="images/favicon.ico">
+    <title>Quarantine</title>
+
+</head>
+<body>
+
+<div id="wrapper" ng-controller="ImportCtrl">
+    <!-- Top bar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Quarantine</a>
+        </div>
+        <div class="navbar-header">
+            <a class="fa fa-upload" ng-click="triggerUpload()" style="padding:16px;cursor:hand;"></a>
+        </div>
+
+        <!-- Side bar -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav side-nav">
+                <li class="active">
+                    <a href="#">
+                        <span class="icon-pipeline"></span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Partials views are included here -->
+    <div ng-view></div>
+</div>
+
+</body>
+</html>

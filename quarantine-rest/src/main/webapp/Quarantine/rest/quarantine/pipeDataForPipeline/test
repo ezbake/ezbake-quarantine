@@ -1,0 +1,23 @@
+ [
+  {
+    "count": 3,
+    "status": "ARCHIVED",
+    "event": {
+      "id": "bba4770fe30bdd6d659b62741013df9cfd9d92912393e26d983ab55c501b60c",
+      "type": "STATUS_UPDATE",
+      "timestamp": 1401742858789,
+      "event": "same message",
+      "pipelineId": "test",
+      "pipeId": "test-pipe",
+      "setEvent": true,
+      "setId": true,
+      "setTimestamp": true,
+      "setPipelineId": true,
+      "setType": true,
+      "setPipeId": true
+    },
+    "setEvent": true,
+    "setStatus": true,
+    "setCount": true
+  }
+]

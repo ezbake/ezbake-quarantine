@@ -1,0 +1,109 @@
+<!--   Copyright (C) 2013-2014 Computer Sciences Corporation
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License. -->
+
+<div ng-init="refresh(false)" class="pipes">
+    <div id="pipes-wrapper">
+        <div id="page-wrapper">
+            <div class="row pagehead">
+                <div class="col-lg-9">
+                    <!-- Right arrow -->
+                    <i class="fa fa-angle-right crumb"></i>
+                    <!-- Pipeline name -->
+                    <h1 class="title">{{pipelineId}}</h1>
+                    <!-- Pipeline: last event time -->
+                    <div class="last-error">
+                        Time of last event :
+                        <span class="highlight">{{pipelineMeta.date | date : 'medium'}}</span>
+                    </div>
+                    <!-- Pipeline: last event -->
+                    <div class="last-event">
+                        Last event:
+                        <span class="highlight">
+                            {{pipelineMeta.event_type}}
+                        </span>
+                    </div>
+                </div>
+                <!-- Refresh button -->
+                <div class="col-lg-2 text-right floatright">
+                    <div class='sort'>
+                        <button class="btn refresh floatright" type="button" ng-click="refresh(true)">
+                            <i class="fa fa-refresh"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- End page head -->
+            <div ng-show="loading">
+                <h4 class="title">Loading pipe details...</h4>
+            </div>
+            <div ng-show="!pipedata.length && !loading">
+                <h4 class="title">There are no events for this pipeline in Quarantine.</h4>
+            </div>
+            <div ng-repeat="data in pipedata" class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <!-- Error Count row -->
+                            <div class="row">
+                                <div class="col-xs-12 settings text-right">
+                                    <!-- error count for pipeline -->
+                                    <span class="badge">{{data.count}}</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <!-- Pipe name -->
+                                    <span class="icon-pipe-02"></span>
+                                    <a href="#/pipelines/{{pipelineId}}/{{data.event.pipeId}}">
+                                        <h2 class="panel-title">
+                                            {{data.event.pipeId}}
+                                        </h2>
+                                    </a>
+                                    <!-- Time stamp for last event -->
+                                    <div class="last-error">
+                                        Time of last event:
+                                        <span class="highlight">{{data.event.timestamp | date : 'medium'}}</span>
+                                    </div>
+                                    <!-- Last event type-->
+                                    <div class="last-event">
+                                        Last event:
+                                        <span class="highlight">{{data.status}}</span>
+                                    </div>
+                                </div>
+                                <!-- Comment message -->
+                                <div class="col-xs-12">
+                                    <div class="comment-text">
+                                        Error Message:
+                                        <span class="highlight"> {{data.event.event}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Panel footer -->
+                        <a href="#/pipelines/{{pipelineId}}/{{data.event.pipeId}}">
+                            <div class="panel-footer announcement-bottom">
+                                <div class="row">
+                                    <div class="col-xs-8"> View Pipe</div>
+                                    <div class="col-xs-4 text-right">
+                                        <i class="fa fa-arrow-circle-right"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

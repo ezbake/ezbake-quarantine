@@ -1,0 +1,92 @@
+<!--   Copyright (C) 2013-2014 Computer Sciences Corporation
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License. -->
+
+<div id="page-wrapper" ng-init="refresh()">
+    <div class="row pagehead">
+        <div class="col-lg-8">
+            <!-- Title -->
+            <h1 class="title">Pipelines</h1>
+        </div>
+        <!-- Refresh button -->
+        <div class="col-lg-2 text-right floatright">
+            <button class="btn refresh floatright" type="button" ng-click="refresh()">
+                <i class="fa fa-refresh"></i>
+            </button>
+        </div>
+    </div>
+    <!-- Grid view -->
+    <div class="row">
+        <div ng-show="loading">
+            <h4 class="title">Loading pipelines...</h4>
+        </div>
+        <div ng-show="!pipelines.length && !loading">
+            <h4 class="title">There are no pipelines that currently have events in Quarantine.</h4>
+        </div>
+        <div ng-repeat="data in pipelines" class="col-lg-12">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <!-- Error count row -->
+                    <div class="row">
+                        <div class="col-xs-12 settings text-right">
+                            <!-- Error count for the pipeline -->
+                            <span class="badge">{{data.count}}</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <!-- Pipeline name -->
+                            <a href="#/pipelines/{{data.object.pipelineId}}">
+                                <h2 class="panel-title">{{data.object.pipelineId}}</h2>
+                            </a>
+                            <!-- Time stamp -->
+                            <div class="last-error">
+                                Time of last event:
+								<span class="highlight">
+									{{data.object.timestamp | date:'medium'}}
+								</span>
+                            </div>
+                            <!-- Last Event Type -->
+                            <div class="last-event">
+                                Last event type:
+                                <span class="highlight">{{data.event_type}}</span>
+                            </div>
+                            <!-- Description-->
+                            <div class="last-comment">
+                                Description:
+                                <div class="comment-text">
+                                    <span>{{data.object.event}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Footer content -->
+                <a href="#/pipelines/{{data.object.pipelineId}}" ng-click="setSelectedPipeline($index)">
+                    <div class="panel-footer announcement-bottom">
+                        <div class="row">
+                            <div class="col-xs-8">
+                                View Pipeline
+                            </div>
+                            <div class="col-xs-4 text-right">
+                                <i class="fa fa-arrow-circle-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
